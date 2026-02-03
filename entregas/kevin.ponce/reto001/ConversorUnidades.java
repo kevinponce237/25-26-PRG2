@@ -2,45 +2,16 @@ import java.util.Scanner;
 public class ConversorUnidades {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int c = 0;
-        boolean f = true;
 
         System.out.println("Conversor de Unidades - Version 2.1");
         System.out.println("[1] Longitud");
         System.out.println("[2] Peso");
         System.out.println("[3] Temperatura");
         System.out.print("Tipo de conversion: ");
-        int t = sc.nextInt();
+        int opcion = sc.nextInt();
 
         if (t == 1) {
-            System.out.println("Conversion de longitud:");
-            System.out.println("[1] Metros a Kilometros");
-            System.out.println("[2] Kilometros a Metros");
-            System.out.println("[3] Metros a Millas");
-            System.out.println("[4] Millas a Metros");
-            System.out.println("[5] Centimetros a Pulgadas");
-            System.out.println("[6] Pulgadas a Centimetros");
-            System.out.print("Opcion: ");
-            int o = sc.nextInt();
-            System.out.print("Valor: ");
-            double v = sc.nextDouble();
-
-            if (o == 1) {
-                System.out.println(v + " m = " + (v / 1000) + " km");
-            } else if (o == 2) {
-                System.out.println(v + " km = " + (v * 1000) + " m");
-            } else if (o == 3) {
-                System.out.println(v + " m = " + (v * 0.000621371) + " mi");
-            } else if (o == 4) {
-                System.out.println(v + " mi = " + (v * 1609.34) + " m");
-            } else if (o == 5) {
-                System.out.println(v + " cm = " + (v * 0.393701) + " in");
-            } else if (o == 6) {
-                System.out.println(v + " in = " + (v * 2.54) + " cm");
-            } else {
-                System.out.println("Opcion no valida");
-                f = false;
-            }
+           
         } else if (t == 2) {
             System.out.println("Conversion de peso:");
             System.out.println("[1] Kilogramos a Gramos");
@@ -102,7 +73,35 @@ public class ConversorUnidades {
 
     }
 
-    public static  double convertirLongitud(int opcion, double valor){
+    public static  void convertirLongitud(){
+         System.out.println("Conversion de longitud:");
+            System.out.println("[1] Metros a Kilometros");
+            System.out.println("[2] Kilometros a Metros");
+            System.out.println("[3] Metros a Millas");
+            System.out.println("[4] Millas a Metros");
+            System.out.println("[5] Centimetros a Pulgadas");
+            System.out.println("[6] Pulgadas a Centimetros");
+            System.out.print("Opcion: ");
+            int opcion = sc.nextInt();
+            System.out.print("Valor: ");
+            double valor = sc.nextDouble();
+
+            if (opcion == 1) {
+                System.out.println(valor + " m = " + (valor / 1000) + " km");
+            } else if (opcion == 2) {
+                System.out.println(valor + " km = " + (valor * 1000) + " m");
+            } else if (opcion == 3) {
+                System.out.println(valor + " m = " + (valor * 0.000621371) + " mi");
+            } else if (opcion == 4) {
+                System.out.println(valor + " mi = " + (valor * 1609.34) + " m");
+            } else if (opcion == 5) {
+                System.out.println(valor + " cm = " + (valor * 0.393701) + " in");
+            } else if (opcion == 6) {
+                System.out.println(valor + " in = " + (valor * 2.54) + " cm");
+            } else {
+                System.out.println("Opcion no valida");
+                f = false;
+            }
 
     }
 
@@ -111,6 +110,6 @@ public class ConversorUnidades {
     }
 
     public static double convertirTemperatura(int opcion,double valor){
-        
+
     }
 }
