@@ -15,31 +15,7 @@ public class ConversorUnidades {
         } else if (t == 2) {
           
         } else if (t == 3) {
-            System.out.println("Conversion de temperatura:");
-            System.out.println("[1] Celsius a Fahrenheit");
-            System.out.println("[2] Fahrenheit a Celsius");
-            System.out.println("[3] Celsius a Kelvin");
-            System.out.println("[4] Kelvin a Celsius");
-            System.out.print("Opcion: ");
-            int o = sc.nextInt();
-            System.out.print("Valor: ");
-            double v = sc.nextDouble();
-
-            if (o == 1) {
-                System.out.println(v + " C = " + (v * 9 / 5 + 32) + " F");
-            } else if (o == 2) {
-                System.out.println(v + " F = " + ((v - 32) * 5 / 9) + " C");
-            } else if (o == 3) {
-                System.out.println(v + " C = " + (v + 273.15) + " K");
-            } else if (o == 4) {
-                System.out.println(v + " K = " + (v - 273.15) + " C");
-            } else {
-                System.out.println("Opcion no valida");
-                f = false;
-            }
-        } else {
-            System.out.println("Tipo no valido");
-        }
+           
     }
 
     public static void menu (){
@@ -77,7 +53,7 @@ public class ConversorUnidades {
 
     }
 
-    public static double convertirPeso(int opcion, double valor){
+    public static void convertirPeso(){
             System.out.println("Conversion de peso:");
             System.out.println("[1] Kilogramos a Gramos");
             System.out.println("[2] Gramos a Kilogramos");
