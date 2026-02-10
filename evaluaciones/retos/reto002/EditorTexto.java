@@ -36,5 +36,15 @@ public class EditorTexto {
         System.out.println("ingrece el contenido de la nueva linea: \n");
     }
 
-    public static void cambiar
+    public static void definirLineaActiva(){
+
+    }
+
+    public static void intercambiarLinea(){
+
+    }
+
+    public static void elimiarLinea(){
+        
+    }
 }
