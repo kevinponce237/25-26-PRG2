@@ -53,9 +53,21 @@ public class EditorTexto {
     }
     
 
-    public static void intercambiarLinea(){
-
+    public static void intercambiarLinea() {
+        System.out.print("Introduce la linea con la que quieres intercambiar (1-10): ");
+        int otraLinea = teclado.nextInt();
+    
+        if (otraLinea >= 1 && otraLinea <= 10) {
+            int indiceOtra = otraLinea - 1;
+    
+            String aux = fichero[lineaActiva];
+            fichero[lineaActiva] = fichero[indiceOtra];
+            fichero[indiceOtra] = aux;
+        } else {
+            System.out.println("Error: la linea debe estar entre 1 y 10");
+        }
     }
+    
 
     public static void elimiarLinea() {
         fichero[lineaActiva] = null;
