@@ -57,9 +57,10 @@ public class EditorTexto {
 
     }
 
-    public static void elimiarLinea(){
-
+    public static void elimiarLinea() {
+        fichero[lineaActiva] = null;
     }
+    
 
     
 }
