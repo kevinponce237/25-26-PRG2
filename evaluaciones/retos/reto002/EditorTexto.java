@@ -9,11 +9,32 @@ public class EditorTexto {
     static Scanner teclado = new Scanner(System.in);
     public static void main(String[] args) {
         EditorTexto editor = new EditorTexto();
-        editor.fichero = new String[10];
-
-        editor.imprimirFichero();
-        editor.mostrarMenu();
+        fichero = new String[10];
+    
+        boolean salir = false;
+    
+        do {
+            editor.imprimirFichero();
+            editor.mostrarMenu();
+            System.out.print("Elige una opcion: ");
+    
+            String opcion = teclado.next().toUpperCase();
+    
+            switch (opcion) {
+                case "L" -> editor.definirLineaActiva();
+                case "E" -> editarLinea();
+                case "I" -> intercambiarLinea();
+                case "B" -> elimiarLinea();
+                case "S" -> {
+                    System.out.println("Saliendo del editor...");
+                    salir = true;
+                }
+                default -> System.out.println("Opcion no valida");
+            }
+    
+        } while (!salir);
     }
+    
 
     public void imprimirFichero() {
         System.out.println("--------------------------------------------------");
