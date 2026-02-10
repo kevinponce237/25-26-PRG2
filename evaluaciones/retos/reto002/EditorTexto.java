@@ -33,15 +33,17 @@ public class EditorTexto {
         } while (!salir);
     }
 
-
     public static void imprimirFichero() {
         System.out.println("--------------------------------------------------");
         for (int i = 0; i < fichero.length; i++) {
+
             String contenido = (fichero[i] == null) ? "" : fichero[i];
+            int numeroLineaUsuario = i + 1;
+
             if (i == lineaActiva) {
-                System.out.println(i + ":*| " + contenido);
+                System.out.println(numeroLineaUsuario + ":*| " + contenido);
             } else {
-                System.out.println(i + ": | " + contenido);
+                System.out.println(numeroLineaUsuario + ": | " + contenido);
             }
         }
         System.out.println("--------------------------------------------------");
@@ -53,10 +55,10 @@ public class EditorTexto {
 
     public static void definirLineaActiva() {
         System.out.print("Introduce la linea activa (1-10): ");
-        int linea = teclado.nextInt();
+        int lineaUsuario = teclado.nextInt();
 
-        if (linea >= 1 && linea <= TAM_FICHERO) {
-            lineaActiva = linea - 1;
+        if (lineaUsuario >= 1 && lineaUsuario <= TAM_FICHERO) {
+            lineaActiva = lineaUsuario - 1;
         } else {
             System.out.println("Error: la linea debe estar entre 1 y 10");
         }
@@ -73,10 +75,10 @@ public class EditorTexto {
 
     public static void intercambiarLinea() {
         System.out.print("Introduce la linea con la que quieres intercambiar (1-10): ");
-        int otraLinea = teclado.nextInt();
+        int lineaUsuario = teclado.nextInt();
 
-        if (otraLinea >= 1 && otraLinea <= TAM_FICHERO) {
-            int indiceOtra = otraLinea - 1;
+        if (lineaUsuario >= 1 && lineaUsuario <= TAM_FICHERO) {
+            int indiceOtra = lineaUsuario - 1;
 
             String aux = fichero[lineaActiva];
             fichero[lineaActiva] = fichero[indiceOtra];
