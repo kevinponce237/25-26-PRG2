@@ -12,6 +12,7 @@ public class EditorTexto {
         boolean salir = false;
 
         do {
+            limpiarConsola();
             imprimirFichero();
             mostrarMenu();
             System.out.print("Elige una opcion: ");
@@ -33,10 +34,14 @@ public class EditorTexto {
         } while (!salir);
     }
 
+    public static void limpiarConsola() {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
+    }
+
     public static void imprimirFichero() {
         System.out.println("--------------------------------------------------");
         for (int i = 0; i < fichero.length; i++) {
-
             String contenido = (fichero[i] == null) ? "" : fichero[i];
             int numeroLineaUsuario = i + 1;
 
@@ -66,10 +71,8 @@ public class EditorTexto {
 
     public static void editarLinea() {
         System.out.print("Introduce el contenido de la nueva linea: ");
-
         teclado.nextLine();
         String nuevoContenido = teclado.nextLine();
-
         fichero[lineaActiva] = nuevoContenido;
     }
 
@@ -79,7 +82,6 @@ public class EditorTexto {
 
         if (lineaUsuario >= 1 && lineaUsuario <= TAM_FICHERO) {
             int indiceOtra = lineaUsuario - 1;
-
             String aux = fichero[lineaActiva];
             fichero[lineaActiva] = fichero[indiceOtra];
             fichero[indiceOtra] = aux;
