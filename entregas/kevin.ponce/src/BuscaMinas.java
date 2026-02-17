@@ -17,8 +17,17 @@ public class Buscaminas {
     }
 
     public static char[][] generarTablero() {
-        return null;
+    tablero = new char[numFilasDelTablero][numColumnasDelTablero];
+
+    for (int i = 0; i < numFilasDelTablero; i++) {
+        for (int j = 0; j < numColumnasDelTablero; j++) {
+            tablero[i][j] = ' ';
+        }
     }
+
+    return tablero;
+}
+
 
     public static void generarIndicesAleatorios() {
         java.util.Random random = new java.util.Random();
