@@ -60,9 +60,22 @@ public class Buscaminas {
         return false;
     }
 
-    public static void mostrarTableroYMenu() {
+    public static void mostrarTablero() {
+        System.out.print("   ");
+        for (int j = 0; j < numColumnasDelTablero; j++) {
+            System.out.print(j + " ");
+        }
+        System.out.println();
 
-    }
+        for (int i = 0; i < numFilasDelTablero; i++) {
+            System.out.print(i + "  ");
+            for (int j = 0; j < numColumnasDelTablero; j++) {
+                System.out.print(tablero[i][j] + " ");
+            }
+            System.out.println();
+        }
+}
+
 
     public static boolean verificar(int posicionX, int posicionY) {
         return false;
