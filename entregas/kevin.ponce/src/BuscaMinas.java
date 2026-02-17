@@ -12,7 +12,6 @@ public class Buscaminas {
     static int numeroDePosicionesRevisadas = 0;
     static char[][] tablero;
 
-
     public static void main(String[] args) {
 
     }
@@ -33,23 +32,24 @@ public class Buscaminas {
             int x = random.nextInt(numFilasDelTablero);
             int y = random.nextInt(numColumnasDelTablero);
 
-            boolean repetida = false;
-
-            for (int i = 0; i < minasGeneradas; i++) {
-                if (listaMinasX[i] == x && listaMinasY[i] == y) {
-                    repetida = true;
-                    break;
-                }
-            }
+            boolean repetida = verificarIndiceDuplicado(listaMinasX, listaMinasY, minasGeneradas, x, y);
 
             if (!repetida) {
                 listaMinasX[minasGeneradas] = x;
                 listaMinasY[minasGeneradas] = y;
                 minasGeneradas++;
             }
+        }
     }
-}
 
+    public static boolean verificarIndiceDuplicado(int[] listaX, int[] listaY, int limite, int x, int y) {
+        for (int i = 0; i < limite; i++) {
+            if (listaX[i] == x && listaY[i] == y) {
+                return true;
+            }
+        }
+        return false;
+    }
 
     public static void mostrarTableroYMenu() {
 
@@ -70,5 +70,4 @@ public class Buscaminas {
     public static int calcularPosicionesSeguras() {
         return 0;
     }
-
 }
