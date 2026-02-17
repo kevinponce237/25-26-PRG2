@@ -13,7 +13,47 @@ public class Buscaminas {
     static char[][] tablero;
 
     public static void main(String[] args) {
+        java.util.Scanner scanner = new java.util.Scanner(System.in);
 
+        generarTablero();
+        generarIndicesAleatorios();
+
+        while (continuarJuego) {
+            imprimirSeparador();
+            mostrarTablero();
+            imprimirSeparador();
+
+            int x = pedirEntero(scanner, "Ingrese X", 1, numFilasDelTablero) - 1;
+            int y = pedirEntero(scanner, "Ingrese Y", 1, numColumnasDelTablero) - 1;
+
+            if (tablero[x][y] == '.' || tablero[x][y] == '*') {
+                System.out.println("----------------");
+                System.out.println("Esa casilla ya fue revisada.");
+                continue;
+            }
+
+            boolean esMina = verificarPosicion(x, y, listaMinasX, listaMinasY);
+
+            if (esMina) {
+                tablero[x][y] = '*';
+                numMinasActivas++;
+                System.out.println("----------------");
+                System.out.println("Mina!");
+            } else {
+                tablero[x][y] = '.';
+                numeroDePosicionesRevisadas++;
+                System.out.println("----------------");
+                System.out.println("Libre!");
+            }
+
+            continuarJuego = verificarEstado();
+        }
+
+        imprimirSeparador();
+        mostrarTablero();
+        imprimirSeparador();
+
+        scanner.close();
     }
 
     public static char[][] generarTablero() {
@@ -21,7 +61,7 @@ public class Buscaminas {
 
         for (int i = 0; i < numFilasDelTablero; i++) {
             for (int j = 0; j < numColumnasDelTablero; j++) {
-                tablero[i][j] = ' ';
+                tablero[i][j] = '-';
             }
         }
 
@@ -60,16 +100,16 @@ public class Buscaminas {
     }
 
     public static void mostrarTablero() {
-        System.out.print("   ");
-        for (int j = 0; j < numColumnasDelTablero; j++) {
-            System.out.print(j + " ");
+        System.out.print("  ");
+        for (int j = 1; j <= numColumnasDelTablero; j++) {
+            System.out.print(" " + j);
         }
         System.out.println();
 
         for (int i = 0; i < numFilasDelTablero; i++) {
-            System.out.print(i + "  ");
+            System.out.print((i + 1) + " ");
             for (int j = 0; j < numColumnasDelTablero; j++) {
-                System.out.print(tablero[i][j] + " ");
+                System.out.print(" " + tablero[i][j]);
             }
             System.out.println();
         }
@@ -110,5 +150,32 @@ public class Buscaminas {
     public static int calcularPosicionesSeguras() {
         int posicionesTotales = numFilasDelTablero * numColumnasDelTablero;
         return posicionesTotales - minasAGenerar;
+    }
+
+    public static int pedirEntero(java.util.Scanner scanner, String mensaje, int min, int max) {
+        int valor = 0;
+        boolean valido = false;
+
+        while (!valido) {
+            System.out.println(mensaje);
+
+            if (scanner.hasNextInt()) {
+                valor = scanner.nextInt();
+                if (valor >= min && valor <= max) {
+                    valido = true;
+                } else {
+                    System.out.println("Valor fuera de rango. Debe estar entre " + min + " y " + max + ".");
+                }
+            } else {
+                scanner.next();
+                System.out.println("Entrada inválida. Debes ingresar un número.");
+            }
+        }
+
+        return valor;
+    }
+
+    public static void imprimirSeparador() {
+        System.out.println("================");
     }
 }
