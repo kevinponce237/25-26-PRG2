@@ -17,17 +17,16 @@ public class Buscaminas {
     }
 
     public static char[][] generarTablero() {
-    tablero = new char[numFilasDelTablero][numColumnasDelTablero];
+        tablero = new char[numFilasDelTablero][numColumnasDelTablero];
 
-    for (int i = 0; i < numFilasDelTablero; i++) {
-        for (int j = 0; j < numColumnasDelTablero; j++) {
-            tablero[i][j] = ' ';
+        for (int i = 0; i < numFilasDelTablero; i++) {
+            for (int j = 0; j < numColumnasDelTablero; j++) {
+                tablero[i][j] = ' ';
+            }
         }
+
+        return tablero;
     }
-
-    return tablero;
-}
-
 
     public static void generarIndicesAleatorios() {
         java.util.Random random = new java.util.Random();
@@ -74,28 +73,42 @@ public class Buscaminas {
             }
             System.out.println();
         }
-}
-
+    }
 
     public static boolean verificarPosicion(int posicionX, int posicionY, int[] listaX, int[] listaY) {
-    for (int i = 0; i < minasAGenerar; i++) {
-        if (listaX[i] == posicionX && listaY[i] == posicionY) {
-            return true;
+        for (int i = 0; i < minasAGenerar; i++) {
+            if (listaX[i] == posicionX && listaY[i] == posicionY) {
+                return true;
+            }
         }
+        return false;
     }
-    return false;
-}
-
 
     public static boolean verificarEstado() {
-        return false;
+        if (jugadorPerdio()) {
+            System.out.println("Has perdido. Se activaron " + numMinasActivas + " minas.");
+            return false;
+        }
+
+        if (jugadorGano()) {
+            System.out.println("Has ganado. Liberaste todas las casillas seguras.");
+            return false;
+        }
+
+        return true;
     }
 
-    public static boolean estaEnLista(int valor, int[] lista) {
-        return false;
+    public static boolean jugadorPerdio() {
+        return numMinasActivas >= minasParaPerder;
+    }
+
+    public static boolean jugadorGano() {
+        int posicionesSeguras = calcularPosicionesSeguras();
+        return numeroDePosicionesRevisadas >= posicionesSeguras;
     }
 
     public static int calcularPosicionesSeguras() {
-        return 0;
+        int posicionesTotales = numFilasDelTablero * numColumnasDelTablero;
+        return posicionesTotales - minasAGenerar;
     }
 }
