@@ -1,4 +1,4 @@
-public class Buscaminas {
+public class BuscaMinas {
     static int[] listaMinasX;
     static int[] listaMinasY;
 
