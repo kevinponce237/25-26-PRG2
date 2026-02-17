@@ -77,9 +77,15 @@ public class Buscaminas {
 }
 
 
-    public static boolean verificar(int posicionX, int posicionY) {
-        return false;
+    public static boolean verificarPosicion(int posicionX, int posicionY, int[] listaX, int[] listaY) {
+    for (int i = 0; i < minasAGenerar; i++) {
+        if (listaX[i] == posicionX && listaY[i] == posicionY) {
+            return true;
+        }
     }
+    return false;
+}
+
 
     public static boolean verificarEstado() {
         return false;
