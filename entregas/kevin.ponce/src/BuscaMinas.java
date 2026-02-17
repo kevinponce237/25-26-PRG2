@@ -22,8 +22,34 @@ public class Buscaminas {
     }
 
     public static void generarIndicesAleatorios() {
+        java.util.Random random = new java.util.Random();
 
+        listaMinasX = new int[minasAGenerar];
+        listaMinasY = new int[minasAGenerar];
+
+        int minasGeneradas = 0;
+
+        while (minasGeneradas < minasAGenerar) {
+            int x = random.nextInt(numFilasDelTablero);
+            int y = random.nextInt(numColumnasDelTablero);
+
+            boolean repetida = false;
+
+            for (int i = 0; i < minasGeneradas; i++) {
+                if (listaMinasX[i] == x && listaMinasY[i] == y) {
+                    repetida = true;
+                    break;
+                }
+            }
+
+            if (!repetida) {
+                listaMinasX[minasGeneradas] = x;
+                listaMinasY[minasGeneradas] = y;
+                minasGeneradas++;
+            }
     }
+}
+
 
     public static void mostrarTableroYMenu() {
 
