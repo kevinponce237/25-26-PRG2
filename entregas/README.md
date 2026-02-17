@@ -1,37 +1,63 @@
-# Carpeta de entregas
+# Preámbulo
 
-Para cada entrega, cree en esta carpeta su carpeta personal usando el estándar `apellidoNombre`.
+Debido a que ambas versiones presentan malas prácticas, código complejo y algoritmos ineficientes, he determinado que tardaría menos tiempo realizando mi propia implementación del reto en lugar de refactorizar el código original.
 
-## Estructura
+# Funciones principales
+
+## generarTablero
+
+Devuelve la matriz con el tablero.
+
+## generarIndicesAleatorios
+
+Genera una posición aleatoria para la mina.
+
+## mostrarTableroYMenu
+
+Muestra el tablero completo y el menú.
+
+## verificar(int posicionX, int posicionY)
+
+Recibe las posiciones, verifica que estén dentro del rango y luego comprueba si hay una mina.
+En caso de haberla, devuelve `true`.
+
+## verificarEstado
+
+Verifica si el juego continúa o si ha terminado.
+Comprueba si el jugador ganó o perdió.
+Si el juego continúa, devuelve `true`.
+
+---
+
+# Variables importantes
+
+* `listaMinas`: lista con las posiciones de las minas.
+* `numMinasActivas`: número de minas que se activaron.
+* `continuarJuego`: booleano, por defecto `true`.
+* `minasAGenerar` (final): 5
+* `minasParaPerder` (final): 3
+* `numColumnasDelTablero` (final): 7
+* `numFilasDelTablero` (final): 5
+* `numeroDePosicionesRevisadas`: 0
+
+---
+
+# Lógica especial
+
+El jugador gana cuando el número de posiciones revisadas es igual al número total de posiciones seguras.
+
+Este valor se calcula previamente en función de las columnas y filas (posiciones totales del tablero menos las minas).
+
+**Fórmula conceptual:**
 
 ```
-/entregas/apellidoNombre/README.md   <-- Presentación de la entrega
-                        /src         <-- Código fuente
-                        /modelosUML  <-- Modelos en plantUML
-                        /docs        <-- Documentación adicional
-                        /images      <-- Imágenes, diagramas...
+posicionesTotales - minas
 ```
 
-## Artefactos habituales
+---
 
-||||
-|-|-|-|
-|1|**README.md**|Presentación de la entrega, con explicación de la solución y referencias al resto de artefactos. ¡Navegabilidad!|
-|2|**Código fuente**|Proyecto ordenado dentro de `/src`.|
-|3|**Diagramas**|Fuente en `/modelosUML`, exportado en `/images`, referenciado en los .md pertinentes.|
-|4|**Documentación adicional**|En `/docs`, en formato markdown (u otro formato, solo si se solicita explícitamente).|
+# Consideraciones extra
 
-> Cada reto indicará qué artefactos son obligatorios y cuáles opcionales.
-
-## Criterios de valoración
-
-- **Proceso de creación** — commits bien descritos, un cambio por commit.
-- **Código limpio** — innegociable.
-- **Adecuado reparto de responsabilidades** entre módulos.
-- **Aplicación de lo visto en la vida, en el grado, en la asignatura y en las clases**, en ese orden.
-
-## Tenga en cuenta
-
-- **Planificar** antes de codificar (diagramas, esquemas, pseudocódigo).
-- **Construir código que se autoexplique**.
-- **Usar los commits** para documentar el proceso.
+* Se debe usar gestión basada en estados.
+* Se deben usar dos arreglos: uno para almacenar las posiciones en X y otro para las posiciones en Y.
+* Se debe implementar una función auxiliar que verifique si un número está en la lista y que devuelva `true` o `false`.
