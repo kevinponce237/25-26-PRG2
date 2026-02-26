@@ -1,14 +1,18 @@
-class fecha {
+class Fecha {
     private int dia;
     private int mes;
     private int año;
 
-    public fecha(int dia, int mes, int año) {
+    public Fecha(int dia, int mes, int año) {
  
     }
 
-    public fecha() {
+    public Fecha() {
 
+    }
+
+    public Fecha (String fechaFormatoLargo) {
+        
     }
 
     public int getDia() {
@@ -46,11 +50,27 @@ class fecha {
         
     }
 
-    public boolean esMayorQue(fecha fecha) {
+    public boolean esMayorQue(Fecha fecha) {
         
     }
 
     public int diasFaltantes() {
+        
+    }
+
+    public String getNombreMes() {
+        
+    }
+
+    public String getFormatoLargo() {
+        
+    }
+
+    public Fecha sumarOtrFecha(Fecha fecha) {
+        
+    }
+
+    public Fecha restarOtraFecha(Fecha fecha) {
         
     }
 
