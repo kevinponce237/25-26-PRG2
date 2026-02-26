@@ -74,5 +74,9 @@ class Fecha {
         
     }
 
+    public void MostarFormatoLargo() {
+        
+    }
+
 
 }
