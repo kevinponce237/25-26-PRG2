@@ -5,21 +5,21 @@ class Intervalo {
     private double superior;
     private double inferior;
 
-    public Intervalo (double inferior, double superior) {
+    public Intervalo(double inferior, double superior) {
         assert inferior <= superior;
         this.inferior = inferior;
         this.superior = superior;
     }
 
-    public Intervalo (double superior) {
-        this(0,superior);
+    public Intervalo(double superior) {
+        this(0, superior);
     }
 
-    public Intervalo () {
-        this(0,0);
+    public Intervalo() {
+        this(0, 0);
     }
-    
-    public Intervalo (Intervalo intervalo) {
+
+    public Intervalo(Intervalo intervalo) {
         this(intervalo.inferior, intervalo.superior);
     }
 
@@ -49,13 +49,13 @@ class Intervalo {
 
     public boolean incluye(Intervalo intervalo) {
         assert intervalo != null;
-        return this.incluye(intervalo.inferior) && 
+        return this.incluye(intervalo.inferior) &&
                 this.incluye(intervalo.superior);
     }
 
     public boolean equals(Intervalo intervalo) {
         assert intervalo != null;
-        return inferior == intervalo.inferior && 
+        return inferior == intervalo.inferior &&
                 superior == intervalo.superior;
     }
 
@@ -72,14 +72,14 @@ class Intervalo {
             return new Intervalo(inferior, intervalo.superior);
         }
     }
-    
+
     public boolean intersecta(Intervalo intervalo) {
         assert intervalo != null;
         return this.incluye(intervalo.inferior) ||
                 this.incluye(intervalo.superior) ||
                 intervalo.incluye(this);
     }
-    
+
     public void oponer() {
         double superiorInicial = superior;
 
@@ -90,14 +90,14 @@ class Intervalo {
     public void doblar() {
         double longitudInicial = this.longitud();
 
-        inferior = inferior - longitudInicial/2;
-        superior = superior + longitudInicial/2;
+        inferior = inferior - longitudInicial / 2;
+        superior = superior + longitudInicial / 2;
     }
 
     public void mostrar() {
         Console console = new Console();
 
-        console.writeln("["+inferior+","+superior+"]");
+        console.writeln("[" + inferior + "," + superior + "]");
     }
 
     public void recoger() {
@@ -107,7 +107,7 @@ class Intervalo {
         do {
             inferior = console.readDouble("Valor inferior?");
             superior = console.readDouble("Valor superior?");
-            valido = superior>=inferior;
+            valido = superior >= inferior;
         } while (!valido);
     }
 
@@ -117,13 +117,12 @@ class Intervalo {
         Intervalo[] intervalos = new Intervalo[trozos];
         double inferior = this.inferior;
         double longitud = this.longitud() / trozos;
-        for(int i=0; i<trozos; i++){
-            intervalos[i] = new Intervalo(inferior, inferior+longitud);
+        for (int i = 0; i < trozos; i++) {
+            intervalos[i] = new Intervalo(inferior, inferior + longitud);
             inferior = inferior + longitud;
         }
         return intervalos;
     }
-
 
     public Intervalo union(Intervalo intervalo) {
         assert this.intersecta(intervalo) && !intervalo.incluye(this);
@@ -131,7 +130,7 @@ class Intervalo {
     }
 
     public double puntoMedio() {
-        return inferior + this.longitud()/2;
+        return inferior + this.longitud() / 2;
     }
 
 }
