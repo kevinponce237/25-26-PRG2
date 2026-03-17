@@ -44,7 +44,9 @@ public class Fraccion {
         return a;
     }
 
-    public Fraccion clonar();
+    public Fraccion clonar() {
+        return new Fraccion(this);
+    }
 
     public boolean esIgual(Fraccion fraccion);
 
