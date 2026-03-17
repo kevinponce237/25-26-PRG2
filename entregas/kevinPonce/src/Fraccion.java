@@ -83,7 +83,9 @@ public class Fraccion {
     }
 
 
-    public double inversa();
+    public double inversa() {
+        assert numerador != 0 : "No se puede invertir una fracción con numerador 0";
+        return (double) denominador / numerador;
 
     public Fraccion opuesta();
 
