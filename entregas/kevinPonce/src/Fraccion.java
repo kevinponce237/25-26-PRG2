@@ -48,7 +48,10 @@ public class Fraccion {
         return new Fraccion(this);
     }
 
-    public boolean esIgual(Fraccion fraccion);
+    public boolean esIgual(Fraccion fraccion) {
+        assert fraccion != null : "La fracción no puede ser nula";
+        return this.numerador * fraccion.denominador == this.denominador * fraccion.numerador;
+    }
 
 
     public Fraccion sumar(Fraccion fraccion);
