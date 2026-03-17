@@ -87,8 +87,11 @@ public class Fraccion {
         assert numerador != 0 : "No se puede invertir una fracción con numerador 0";
         return (double) denominador / numerador;
 
-    public Fraccion opuesta();
+    public Fraccion opuesta() {
+        return new Fraccion(-numerador, denominador);
+    }
 
-    public boolean esPropia();
-
+    public boolean esPropia() {
+        return Math.abs(numerador) < denominador;
+    }
 }
