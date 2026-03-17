@@ -14,9 +14,15 @@ public class Fraccion {
         simplificar();
     }
 
-    public Fraccion(int numerador);
+    public Fraccion(int numerador) {
+    this(numerador, 1);
+    }
 
-    public Fraccion(Fraccion otra);
+
+    public Fraccion(Fraccion otra) {
+        assert otra != null;
+        this(otra.numerador, otra.denominador);
+    }
 
 
     public String toString();
@@ -44,4 +50,5 @@ public class Fraccion {
     public Fraccion opuesta();
 
     public boolean esPropia();
+
 }
