@@ -25,9 +25,15 @@ public class Fraccion {
     }
 
 
-    public String toString();
+    public String toString() {
+        return numerador + "/" + denominador;
+    }
 
-    public double toDecimal();
+
+    public double toDecimal() {
+        return (double) numerador / denominador;
+    }
+
 
     public int calcularMCD(int a, int b);
 
