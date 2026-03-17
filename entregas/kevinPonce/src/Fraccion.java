@@ -94,4 +94,30 @@ public class Fraccion {
     public boolean esPropia() {
         return Math.abs(numerador) < denominador;
     }
+
+        private void normalizarSigno() {
+        if (denominador < 0) {
+            numerador = -numerador;
+            denominador = -denominador;
+        }
+    }
+
+    private void simplificar() {
+        int mcd = calcularMCD(Math.abs(numerador), denominador);
+        numerador /= mcd;
+        denominador /= mcd;
+    }
+
+    private int calcularMCD(int a, int b) {
+        while (b != 0) {
+            int temp = b;
+            b = a % b;
+            a = temp;
+        }
+        return a;
+    }
+
+    private int calcularMCM(int a, int b) {
+        return (a * b) / calcularMCD(a, b);
+    }
 }
