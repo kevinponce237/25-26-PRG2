@@ -70,7 +70,11 @@ public class Fraccion {
         return new Fraccion(restaNumerador, mcm);
     }
 
-    public Fraccion multiplicar(Fraccion fraccion);
+     public Fraccion multiplicar(Fraccion fraccion) {
+        assert fraccion != null;
+        return new Fraccion(this.numerador * fraccion.numerador,
+                            this.denominador * fraccion.denominador);
+    }
 
     public Fraccion dividir(Fraccion fraccion);
 
