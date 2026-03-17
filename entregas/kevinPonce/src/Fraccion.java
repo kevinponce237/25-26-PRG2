@@ -1,7 +1,18 @@
 public class Fraccion {
-    public Fraccion();
+    private int numerador;
+    private int denominador;
 
-    public Fraccion(int numerador, int denominador);
+    public Fraccion() {
+        this(0, 1);
+    }
+
+    public Fraccion(int numerador, int denominador) {
+        assert denominador != 0;
+        this.numerador = numerador;
+        this.denominador = denominador;
+        normalizarSigno();
+        simplificar();
+    }
 
     public Fraccion(int numerador);
 
