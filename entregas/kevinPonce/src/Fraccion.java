@@ -76,7 +76,11 @@ public class Fraccion {
                             this.denominador * fraccion.denominador);
     }
 
-    public Fraccion dividir(Fraccion fraccion);
+     public Fraccion dividir(Fraccion fraccion) {
+        assert fraccion != null && fraccion.numerador != 0 : "No se puede dividir por 0";
+        return new Fraccion(this.numerador * fraccion.denominador,
+                            this.denominador * fraccion.numerador);
+    }
 
 
     public double inversa();
