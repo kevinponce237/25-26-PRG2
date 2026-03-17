@@ -54,7 +54,13 @@ public class Fraccion {
     }
 
 
-    public Fraccion sumar(Fraccion fraccion);
+    public Fraccion sumar(Fraccion fraccion) {
+        assert fraccion != null;
+        int mcm = calcularMCM(this.denominador, fraccion.denominador);
+        int sumaNumerador = this.numerador * (mcm / this.denominador)
+                           + fraccion.numerador * (mcm / fraccion.denominador);
+        return new Fraccion(sumaNumerador, mcm);
+    }
 
     public Fraccion restar(Fraccion fraccion);
 
