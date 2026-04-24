@@ -16,4 +16,8 @@ public class Caballo {
         int avance = (int) (Math.random() * 3) + 1; 
         posicion += avance;
     }
+
+    public String getNombre() {
+        return nombre;
+    }
 }
