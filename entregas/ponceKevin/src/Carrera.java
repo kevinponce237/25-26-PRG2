@@ -28,8 +28,9 @@ public class Carrera {
     }
 
     private void limpiarConsola() {
-        System.out.print("\033[H\033[2J");
-        System.out.flush();
+        for (int i = 0; i < 40; i++) {
+            System.out.println();
+        }
     }
 
     private void esperar(int milisegundos) {
