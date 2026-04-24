@@ -72,14 +72,17 @@ public class Pista {
 
     }
 
-    private int[] getGanadores() {
+    private int getCantidadGanadores() {
         int cantidadGanadores = 0;
         for (int i = 0; i < numeroCaballos; i++) {
             if (caballos[i].getPosicion() >= tamaño) {
                 cantidadGanadores++;
             }
         }
-
+        return cantidadGanadores;
+    }
+    private int[] getGanadores() {
+        int cantidadGanadores = this.getCantidadGanadores();
         int[] ganadores = new int[cantidadGanadores];
         int index = 0;
         for (int i = 0; i < numeroCaballos; i++) {
