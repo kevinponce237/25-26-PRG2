@@ -48,7 +48,7 @@ public class Pista {
         String pista = "|";
         pista = pista + obtenerTramo(posicion);
         if (posicion == tamaño) {
-            pista = pista + "C";
+            pista = pista + simboloCaballo;
         }
         pista = pista + "|";
         return pista;
