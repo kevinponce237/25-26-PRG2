@@ -29,30 +29,41 @@ public class Pista {
 
     public void mostrarPosiciones() {
         for (int i = 0; i < numeroCaballos; i++) {
-            int posicion = caballos[i].getPosicion();
-            if (posicion > tamaño) {
-                posicion = tamaño;
-            }
-
-            StringBuilder pistaTexto = new StringBuilder();
-            pistaTexto.append("|");
-
-            for (int j = 0; j < tamaño; j++) {
-                if (j == posicion) {
-                    pistaTexto.append(simboloCaballo);
-                } else {
-                    pistaTexto.append("-");
-                }
-            }
-
-            if (posicion == tamaño) {
-                pistaTexto.append("C");
-            }
-
-            pistaTexto.append("|");
-            System.out.println(caballos[i].getNombre() + " " + pistaTexto);
+            mostrarCarrera(i);
         }
         System.out.println();
+    }
+
+    private void mostrarCarrera(int indice) {
+        String nombre = caballos[indice].getNombre();
+        int posicion = caballos[indice].getPosicion();
+        String pista = construirPista(posicion);
+        System.out.println(nombre + " " + pista);
+    }
+
+    private String construirPista(int posicion) {
+        if (posicion > tamaño) {
+            posicion = tamaño;
+        }
+        String pista = "|";
+        pista = pista + obtenerTramo(posicion);
+        if (posicion == tamaño) {
+            pista = pista + "C";
+        }
+        pista = pista + "|";
+        return pista;
+    }
+
+    private String obtenerTramo(int posicion) {
+        String tramo = "";
+        for (int j = 0; j < tamaño; j++) {
+            if (j == posicion) {
+                tramo = tramo + simboloCaballo;
+            } else {
+                tramo = tramo + "-";
+            }
+        }
+        return tramo;
     }
 
     public void avanzarCaballos() {
