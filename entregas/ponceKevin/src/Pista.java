@@ -16,10 +16,13 @@ public class Pista {
 
 
     public boolean hayGanador() {
+        boolean hayGanador = false;
        for (int i = 0; i < numeroCaballos; i++) {
-            return caballos[i].getPosicion() >= tamaño;
+            if (caballos[i].getPosicion() >= tamaño) {
+                hayGanador = true;
+            }
         }
-        return false;
+        return hayGanador;
     }
 
 
@@ -70,7 +73,14 @@ public class Pista {
     }
 
     private int[] getGanadores() {
-        int[] ganadores = new int[numeroCaballos];
+        int cantidadGanadores = 0;
+        for (int i = 0; i < numeroCaballos; i++) {
+            if (caballos[i].getPosicion() >= tamaño) {
+                cantidadGanadores++;
+            }
+        }
+
+        int[] ganadores = new int[cantidadGanadores];
         int index = 0;
         for (int i = 0; i < numeroCaballos; i++) {
             if (caballos[i].getPosicion() >= tamaño) {
@@ -84,9 +94,7 @@ public class Pista {
     private void listarGanadores(int[] ganadores) {
         System.out.print("Ganador(es): ");
         for (int i = 0; i < ganadores.length; i++) {
-            if (ganadores[i] != 0) {
-                System.out.print(caballos[ganadores[i]].getNombre() + " ");
-            }
+            System.out.print(caballos[ganadores[i]].getNombre() + " ");
         }
         System.out.println();
     }
