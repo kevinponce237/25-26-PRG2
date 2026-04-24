@@ -4,6 +4,7 @@ public class Pista {
     private Caballo[] caballos = new Caballo[10];
     private int numeroCaballos = 0;
     private String simboloCaballo = "|-|";
+    boolean hayGanador = false;
     public Pista(int tamaño) {
         this.tamaño = tamaño;
     }
@@ -17,7 +18,6 @@ public class Pista {
 
 
     public boolean hayGanador() {
-        boolean hayGanador = false;
        for (int i = 0; i < numeroCaballos; i++) {
             if (caballos[i].getPosicion() >= tamaño) {
                 hayGanador = true;
