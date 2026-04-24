@@ -59,4 +59,13 @@ public class Pista {
             caballos[i].avanzar();
         }
     }
+
+    public void mostrarGanadores() {
+        for (int i = 0; i < numeroCaballos; i++) {
+            if (caballos[i].getPosicion() >= tamaño) {
+                System.out.println("¡El ganador es: " + caballos[i].getNombre() + "!");
+                return;
+            }
+        }
+    }
 }
