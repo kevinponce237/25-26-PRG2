@@ -3,6 +3,7 @@ public class Pista {
     private int tamaño;
     private Caballo[] caballos = new Caballo[10];
     private int numeroCaballos = 0;
+    private String simboloCaballo = "|-|";
     public Pista(int tamaño) {
         this.tamaño = tamaño;
     }
@@ -29,9 +30,6 @@ public class Pista {
     public void mostrarPosiciones() {
         for (int i = 0; i < numeroCaballos; i++) {
             int posicion = caballos[i].getPosicion();
-            if (posicion < 0) {
-                posicion = 0;
-            }
             if (posicion > tamaño) {
                 posicion = tamaño;
             }
@@ -41,7 +39,7 @@ public class Pista {
 
             for (int j = 0; j < tamaño; j++) {
                 if (j == posicion) {
-                    pistaTexto.append("C");
+                    pistaTexto.append(simboloCaballo);
                 } else {
                     pistaTexto.append("-");
                 }
