@@ -61,11 +61,33 @@ public class Pista {
     }
 
     public void mostrarGanadores() {
+        int[] ganadores = getGanadores();
+        if (ganadores.length >1) {
+            System.out.println("¡Hay múltiples ganadores es un empate!");
+        }
+        this.listarGanadores(ganadores);
+
+    }
+
+    private int[] getGanadores() {
+        int[] ganadores = new int[numeroCaballos];
+        int index = 0;
         for (int i = 0; i < numeroCaballos; i++) {
             if (caballos[i].getPosicion() >= tamaño) {
-                System.out.println("¡El ganador es: " + caballos[i].getNombre() + "!");
-                return;
+                ganadores[index] = i;
+                index++;
             }
         }
+        return ganadores;
+    }
+
+    private void listarGanadores(int[] ganadores) {
+        System.out.print("Ganador(es): ");
+        for (int i = 0; i < ganadores.length; i++) {
+            if (ganadores[i] != 0) {
+                System.out.print(caballos[ganadores[i]].getNombre() + " ");
+            }
+        }
+        System.out.println();
     }
 }
