@@ -15,6 +15,6 @@ public class Carrera {
            pista.mostrarPosiciones();
            pista.avanzarCaballos();
         }
-        pista.mostrarGanador();
+        pista.mostrarGanadores();
     }
 }
