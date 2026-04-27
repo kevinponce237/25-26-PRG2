@@ -2,7 +2,7 @@ public class Carrera {
     private boolean carreraEnCurso = false;
     private Pista pista;
     final int tamañoPista = 40;
-    final int delayMs = 400;
+    final int delayMs = 280;
     public void iniciarCarrera() {
         this.incializarCarrera();
         while (carreraEnCurso) {
