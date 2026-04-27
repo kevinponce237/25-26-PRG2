@@ -3,7 +3,7 @@ public class Carrera {
     private Pista pista;
     final int tamañoPista = 40;
     final int delayMs = 400;
-    public void jugar() {
+    public void iniciarCarrera() {
         this.incializarCarrera();
         while (carreraEnCurso) {
           this.avanzarCarrera();
@@ -38,7 +38,7 @@ public class Carrera {
         }
     }
 
-    public  void avanzarCarrera() {
+    private void avanzarCarrera() {
         carreraEnCurso = !pista.hayGanador();
         limpiarConsola();
         pista.mostrarPosiciones();

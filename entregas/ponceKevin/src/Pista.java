@@ -3,7 +3,7 @@ public class Pista {
     private int tamaño;
     private Caballo[] caballos = new Caballo[10];
     private int numeroCaballos = 0;
-    private String simboloCaballo = "|-|";
+    private String simboloCaballo = "🐎";
     boolean hayGanador = false;
     public Pista(int tamaño) {
         this.tamaño = tamaño;
