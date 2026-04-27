@@ -15,11 +15,11 @@ public class Carrera {
 
     public void incializarCarrera() {
         this.carreraEnCurso = true;
-        Caballo caballo1 = new Caballo("Relámpago");
-        Caballo caballo2 = new Caballo("Tornado");
-        Caballo caballo3 = new Caballo("Centella");
-        Caballo caballo4 = new Caballo("Rayo");
-        Caballo caballo5 = new Caballo("massias");
+        Caballo caballo1 = new Caballo("Aurora");
+        Caballo caballo2 = new Caballo("Brillo");
+        Caballo caballo3 = new Caballo("Viento");
+        Caballo caballo4 = new Caballo("Trueno");
+        Caballo caballo5 = new Caballo("Fulgor");
         pista = new Pista(tamañoPista);
         pista.agregarCaballo(caballo1);
         pista.agregarCaballo(caballo2);
