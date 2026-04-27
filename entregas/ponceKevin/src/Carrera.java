@@ -18,10 +18,14 @@ public class Carrera {
         Caballo caballo1 = new Caballo("Relámpago");
         Caballo caballo2 = new Caballo("Tornado");
         Caballo caballo3 = new Caballo("Centella");
+        Caballo caballo4 = new Caballo("Rayo macqueen");
+        Caballo caballo5 = new Caballo("massias");
         pista = new Pista(tamañoPista);
         pista.agregarCaballo(caballo1);
         pista.agregarCaballo(caballo2);
         pista.agregarCaballo(caballo3);
+        pista.agregarCaballo(caballo4);
+        pista.agregarCaballo(caballo5);
 
     }
     private void limpiarConsola() {
