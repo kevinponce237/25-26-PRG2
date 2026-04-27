@@ -104,9 +104,9 @@ public class Pista {
 
     private void listarGanadores(int[] ganadores) {
         String mensaje = ganadores.length > 1 ? "Los ganadores son: " : "El ganador es: ";
-        System.out.print(mensaje);
+        System.out.print(mensaje+"\n");
         for (int i = 0; i < ganadores.length; i++) {
-            System.out.print(caballos[ganadores[i]].getNombre() + " ");
+            System.out.print((i+1)+caballos[ganadores[i]].getNombre() + "\n");
         }
         System.out.println();
     }
