@@ -4,7 +4,6 @@ public class Pista {
     private Caballo[] caballos = new Caballo[10];
     private int numeroCaballos = 0;
     private String simboloCaballo = "🐎";
-    boolean hayGanador = false;
     public Pista(int tamaño) {
         this.tamaño = tamaño;
     }
@@ -20,21 +19,21 @@ public class Pista {
     public boolean hayGanador() {
        for (int i = 0; i < numeroCaballos; i++) {
             if (caballos[i].getPosicion() >= tamaño) {
-                hayGanador = true;
+                return true;
             }
         }
-        return hayGanador;
+        return false;
     }
 
 
     public void mostrarPosiciones() {
         for (int i = 0; i < numeroCaballos; i++) {
-            mostrarCarrera(i);
+            mostrarCaballoEnPista(i);
         }
         System.out.println();
     }
 
-    private void mostrarCarrera(int indice) {
+    private void mostrarCaballoEnPista(int indice) {
         String nombre = caballos[indice].getNombre();
         int posicion = caballos[indice].getPosicion();
         String pista = construirPista(posicion);
